@@ -45,7 +45,7 @@ def email(fromAddress, toAddress, subject, message){
     msg.sentDate = new Date()
     msg.subject = subject
     msg.setRecipient(Message.RecipientType.TO, to)
-    msg.setContent(message,'text/plain')
+    msg.setContent(message,'text/plain; charset=UTF-8"')
 
     Transport transport = session.getTransport("smtps");
     transport.connect (host, port, this.user, this.password);
@@ -58,16 +58,14 @@ def emailMatch(recipient, matched){
     def toAddress = recipient[1]
     def fromAddress = this.user
     def message = """
-Boas ${recipient[0]},
+Hi ${recipient[0]},
 
-Para o Jantar de Natal do dia 13 de Dezembro, tu és o Secret Santa de ${matched[0]}.
-Lembra-te que só podes gastar até 5 euros!
+You are ${matched[0]}'s Secret Santa!
 
-Cumprimentos,
-Tiago Correia
+Regards,
+The Christmastodon
 
-PS: Isto é gerado automaticamente.
-Eu não sei quem é o secret santa de quem... fiz um scriptzinho para randomizar a malta e enviar os mails: https://github.com/dosaki/christmastodon
+PS: This is automatically generated using the christmastodon script: https://github.com/dosaki/christmastodon
     """
     println "Sending to " + toAddress
     email(fromAddress, toAddress, subject, message.toString())
