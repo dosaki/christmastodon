@@ -3,6 +3,8 @@ christmastodon
 
 <img src="https://raw.githubusercontent.com/dosaki/christmastodon/master/christmastodon.png"/>
 
+###### mascot by Zariga
+
 Automatic Secret Santa! :D
 
 ##Dependencies
