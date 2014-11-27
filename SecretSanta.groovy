@@ -54,20 +54,20 @@ def email(fromAddress, toAddress, subject, message){
 }
 
 def emailMatch(recipient, matched){
-    def subject = "Secret Santa para o Jantar de Natal - dia 13 de Dezembro"
+    def subject = "Secret Santa Jantar de Natal (13 de Dezembro 2014)"
     def toAddress = recipient[1]
     def fromAddress = this.user
     def message = """
 Boas ${recipient[0]},
 
 Para o Jantar de Natal do dia 13 de Dezembro, tu és o Secret Santa de ${matched[0]}.
-
 Lembra-te que só podes gastar até 5 euros!
 
 Cumprimentos,
 Tiago Correia
 
-PS.: Eu não sei quem é o secret santa de quem... fiz um scriptzinho para randomizar a malta e enviar os mails.
+PS: Isto é gerado automaticamente.
+Eu não sei quem é o secret santa de quem... fiz um scriptzinho para randomizar a malta e enviar os mails: https://github.com/dosaki/christmastodon
     """
     println "Sending to " + toAddress
     email(fromAddress, toAddress, subject, message.toString())
