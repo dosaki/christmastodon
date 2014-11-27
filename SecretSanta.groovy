@@ -94,7 +94,7 @@ def match(people){
 println "> Checking the 'Good' list."
 def people = []
 new File( 'list' ).eachLine { line ->
-    if(!line.startsWith('#'))
+    if(!(line.startsWith('#') || line == ""))
         people << [
             line.split(" - ")[0].trim(),
             line.split(" - ")[1].trim()
@@ -119,7 +119,5 @@ else {
 }
 
 println "> Matching and sending..."
-//match(people);
+match(people);
 println "> Done!"
-
-emailMatch(["Dosaki", "lord.g.bug@gmail.com"],["Tiago", "tiago.f.a.correia@gmail.com"])
