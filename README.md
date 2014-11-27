@@ -1,4 +1,4 @@
 christmastodon
 ==============
 
-Automaticly Secret Santa! :D
+Automatic Secret Santa! :D
