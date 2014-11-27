@@ -1,6 +1,8 @@
 christmastodon
 ==============
 
+<img src="https://raw.githubusercontent.com/dosaki/christmastodon/master/christmastodon.png"/>
+
 Automatic Secret Santa! :D
 
 ##Dependencies
