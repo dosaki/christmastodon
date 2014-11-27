@@ -26,5 +26,5 @@ your.email@gmail.com
 yourpasswordhere
 ```
 
-You also need edit the message in [`emailMatch()` on `SecretSanta.groovy`](https://github.com/dosaki/christmastodon/blob/master/SecretSanta.groovy#L56).
+You also need edit the message in [`emailMatch()` on `Christmastodon.groovy`](https://github.com/dosaki/christmastodon/blob/master/Christmastodon.groovy#L56).
 I haven't separated that out yet. Sorry!
