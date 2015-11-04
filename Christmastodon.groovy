@@ -6,7 +6,10 @@ import javax.mail.*
 import javax.activation.*
 import javax.mail.internet.*
 
-this.credentialsFile= new File('credentials')
+this.message = new File('message').getText('UTF-8')
+this.subject = new File('subject').getText('UTF-8')
+
+this.credentialsFile = new File('credentials')
 this.user = credentialsFile.readLines().get(0)
 this.password = credentialsFile.readLines().get(1)
 
@@ -54,20 +57,11 @@ def email(fromAddress, toAddress, subject, message){
 }
 
 def emailMatch(recipient, matched){
-    def subject = "PanIntelligence Secret Santa! (Do not open this if you are on a projector!)"
+    def subject = this.subject
     def toAddress = recipient[1]
     def fromAddress = this.user
-    def message = """
-Hi ${recipient[0]},
+    def message = this.message.replace("[recipient]", recipient[0]).replace("[match]", matched[0])
 
-You are gifting to ${matched[0]}!
-
-
-Happy gifting!
-The Christmastodon
-
--- This is automatically generated using the christmastodon script: https://github.com/dosaki/christmastodon --
-"""
     println "Sending to " + toAddress
     email(fromAddress, toAddress, subject, message.toString())
 }
