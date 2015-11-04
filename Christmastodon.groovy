@@ -45,7 +45,7 @@ def email(fromAddress, toAddress, subject, message){
     msg.sentDate = new Date()
     msg.subject = subject
     msg.setRecipient(Message.RecipientType.TO, to)
-    msg.setContent(message,'text/plain; charset=UTF-8"')
+    msg.setContent(message,'text/plain; charset=UTF-8')
 
     Transport transport = session.getTransport("smtps");
     transport.connect (host, port, this.user, this.password);
