@@ -54,21 +54,26 @@ def email(fromAddress, toAddress, subject, message){
 }
 
 def emailMatch(recipient, matched){
-    def subject = "Secret Santa Jantar de Natal (13 de Dezembro 2014)"
+    def subject = "PanIntelligence Secret Santa! (Do not open this if you are on a projector!)"
     def toAddress = recipient[1]
     def fromAddress = this.user
     def message = """
 Hi ${recipient[0]},
 
-You are ${matched[0]}'s Secret Santa!
+You are gifting to ${matched[0]}!
 
-Regards,
+
+Happy gifting!
 The Christmastodon
 
-PS: This is automatically generated using the christmastodon script: https://github.com/dosaki/christmastodon
-    """
+-- This is automatically generated using the christmastodon script: https://github.com/dosaki/christmastodon --
+"""
     println "Sending to " + toAddress
     email(fromAddress, toAddress, subject, message.toString())
+}
+
+def testMatch(recipient, matched){
+  println "${recipient[0]} is giving to ${matched[0]}"
 }
 
 def match(people){
@@ -85,6 +90,7 @@ def match(people){
         for (int i = 0; i<rndPeople.size(); i++){
             out.println people[i][0] + " giving to " + rndPeople[i][0]
             emailMatch(people[i],rndPeople[i])
+            //testMatch(people[i],rndPeople[i])
         }
     }
 }
