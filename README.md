@@ -28,5 +28,14 @@ your.email@gmail.com
 yourpasswordhere
 ```
 
-You also need edit the message in [`emailMatch()` on `Christmastodon.groovy`](https://github.com/dosaki/christmastodon/blob/master/Christmastodon.groovy#L56).
-I haven't separated that out yet. Sorry!
+Edit the message and subject files with what you want. `[recipient]` and `[match]` are variables that will be replaced.
+
+Send it with
+```
+groovy Match.groovy
+```
+
+Or resend the already-matched list:
+```
+groovy Resend.groovy <email here> <backup match file here>
+```
