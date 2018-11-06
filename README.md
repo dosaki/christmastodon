@@ -7,12 +7,12 @@ christmastodon
 
 Automatic Secret Santa! :D
 
-##Dependencies
+## Dependencies
 
-This requires [Groovy](http://groovy.codehaus.org/)! Because I like it :P
+This requires [Groovy](http://groovy.codehaus.org/)!
 
 
-##How to use it
+## How to use it
 
 Clone it `git clone https://github.com/dosaki/christmastodon.git`
 
