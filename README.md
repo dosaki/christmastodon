@@ -16,19 +16,23 @@ This requires [Groovy](http://groovy.codehaus.org/)!
 
 Clone it `git clone https://github.com/dosaki/christmastodon.git`
 
-Edit [`list`](https://github.com/dosaki/christmastodon/blob/master/list) with your names and emails.
+Rename [`list.template`](https://github.com/dosaki/christmastodon/blob/master/list.template) to `list` and edit it with your names, emails and optionally an address.
 Syntax is:
 ```
-Person Name - the.email@example.com
+Person Name - the.email@example.com - Address
 ```
 
-Edit the [`credentials`](https://github.com/dosaki/christmastodon/blob/master/credentials) with your gmail email and password. Syntax is:
+Rename the [`credentials.template`](https://github.com/dosaki/christmastodon/blob/master/credentials.template) to `credentials` and edit it with your gmail email and password. Syntax is:
 ```
 your.email@gmail.com
 yourpasswordhere
 ```
 
-Edit the message and subject files with what you want. `[recipient]` and `[match]` are variables that will be replaced.
+Rename the [`message.template`](https://github.com/dosaki/christmastodon/blob/master/message.template) to `message` and [`subject.template`](https://github.com/dosaki/christmastodon/blob/master/subject.template) to `subject` and edit them with what you want.
+You can use the following placeholders:
+* `[recipient]` - the name of the recipient of this email
+* `[match]` - the name of their match
+* `[match_address]` - the address of their match
 
 Send it with
 ```
