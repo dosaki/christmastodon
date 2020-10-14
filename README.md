@@ -21,6 +21,7 @@ Syntax is:
 ```
 Person Name - the.email@example.com - Address
 ```
+`Address` is optional
 
 Rename the [`credentials.template`](https://github.com/dosaki/christmastodon/blob/master/credentials.template) to `credentials` and edit it with your gmail email and password. Syntax is:
 ```
