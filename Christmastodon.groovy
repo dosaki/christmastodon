@@ -77,13 +77,24 @@ class Christmastodon{
 
   def emailMatch(recipient, matched, isDebug=false){
     def subject = this.subject
-    def toAddress = recipient[1]
-    def fromAddress = this.user
-    def message = this.message.replace("[recipient]", recipient[0]).replace("[match]", matched[0])
 
-    println "Sending email to " + toAddress
+    def recipientName = recipient[0]
+    def recipientEmail = recipient[1]
+    
+    def matchName = matched[0]
+    def matchAddress = matched.size() > 2 ? matched[2] : null//post address
+    
+    def fromEmail = this.user
+    def message = this.message
+        .replace("[recipient]", recipientName)
+        .replace("[match]", matchName)
+    if(matchAddress){
+      message = message.replace("[match_address]", matchAddress)
+    }
+
+    println "Sending email to " + recipientEmail
     if(!isDebug){
-      email(fromAddress, toAddress, subject, message.toString())
+      email(fromEmail, recipientEmail, subject, message.toString())
     }
   }
 
@@ -147,8 +158,7 @@ class Christmastodon{
         testMatch(people[i],rndPeople[i])
         emailMatch(people[i],rndPeople[i], true)
       }
-    }
-    else{
+    } else {
       new File(".backup_match").withWriter { out ->
         out.println "YOU REALLY SHOULDN'T BE PEEKING INSIDE!"
         for (int i = 0; i<rndPeople.size(); i++){
@@ -163,10 +173,12 @@ class Christmastodon{
     println "> Checking the 'Good' list."
     def people = []
     new File( file ).eachLine { line ->
+      def splittedLine = line.split(" - ")
       if(!(line.startsWith('#') || line == ""))
         people << [
-          line.split(" - ")[0].trim(),
-          line.split(" - ")[1].trim()
+          splittedLine[0].trim(),
+          splittedLine[1].trim(),
+          splittedLine[2].trim()
         ]
     }
 
